@@ -1,5 +1,11 @@
 # Nobox CLI Server
 
+## Setup
+
+- Recommended you use node version 18 and later
+- Clone project, and install packages
+- Setup redis, follow this [tutorial](https://redis.io/docs/install/install-stack/docker/).
+
 ## How Authentication works
 
 - Client make request of /api/auth/github to server
