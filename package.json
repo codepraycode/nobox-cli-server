@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 3001",
     "dev:next": "next dev",
     "dev:socket": "concurrently \"npx tsc --watch ./src/socket.ts\" \"nodemon ./src/socket.js\"",
     "build": "next build",

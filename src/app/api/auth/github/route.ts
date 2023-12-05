@@ -63,4 +63,7 @@ export async function GET(req:NextRequest, res:NextResponse) {
 
     // return NextResponse.redirect('http://localhost:3001/auth/success');
     // return NextResponse.json({cid}, {status: 200});
+
+    // TODO: Document redis setup > https://redis.io/docs/install/install-stack/docker/,  http://localhost:8001/redis-stack/browser
+    // TODO: Update README
 }

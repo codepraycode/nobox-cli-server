@@ -1,32 +1,31 @@
 'use client'
+import { CLI_API, NOBOX_CORE_URL } from "@/utils/env";
 import { redirect, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 
 
-const SERVER_API = "http://localhost:8000/auth/_/github";
-const callback_url = "http://localhost:3001/api/auth/github/callback"
+const nobox_server_github_auth_api = `${NOBOX_CORE_URL}/auth/_/github`;
+const cli_client_callback_url = `${CLI_API}/api/auth/github/callback`;
+
+// console.log(process.env.NEXT_PUBLIC_NOBOX_CORE_URL)
 
 export const AuthRedirect = () => {
     const query = useSearchParams();
 
-    const cid = query.get('cid');
-    // const callback_url = `${authenticated_page_url}?cid=${cid}`
-
+    const callback_client = query.get('cid');
 
     useEffect(()=>{
-        redirect(`${SERVER_API}?callback_url=${callback_url}&&callback_client=${cid}`)
-    }, [])
 
+        if (!callback_client) return
 
-    return null;
-}
+        const redirect_url = new URL(nobox_server_github_auth_api);
 
-export const ParseAuthenticationString = () => {
+        redirect_url.searchParams.append('callback_url', cli_client_callback_url)
+        redirect_url.searchParams.append('callback_client', callback_client)
 
-    const query = useSearchParams();
-
-    console.log(query.get('token'));
+        redirect(redirect_url.toString())
+    }, [callback_client])
 
 
     return null;
