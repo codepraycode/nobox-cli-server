@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { AuthResponseTemplate, AuthResponseDTO} from '@/helpers';
 import { Respond } from "@/utils";
 import { callback_client_id } from "@/constants";
-import { CLI_API } from "../../../../../env/server";
+import { CLI_CLIENT } from "../../../../../env/server";
 
 
 
@@ -42,7 +42,7 @@ export async function GET(req:NextRequest, _:NextResponse) {
     const cached_token = await redis.get(client_id);
 
 
-    const auth_link = new URL(`${CLI_API}/auth`);
+    const auth_link = new URL(`${CLI_CLIENT}/auth`);
     auth_link.searchParams.append(callback_client_id, client_id)
     
 

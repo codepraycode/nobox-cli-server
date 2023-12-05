@@ -7,7 +7,7 @@ import { CLI_API, NOBOX_CORE_URL } from "../../env/client";
 
 
 const nobox_server_github_auth_api = `${NOBOX_CORE_URL}/auth/_/github`;
-const cli_client_callback_url = `${CLI_API}/api/auth/github/callback`;
+const cli_client_callback_url = `${CLI_API}/auth/github/callback`;
 
 
 export const AuthRedirect = () => {
