@@ -2,7 +2,7 @@
 import { callback_client_id } from "@/constants";
 import { redirect, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import { CLI_API, NOBOX_CORE_URL } from "../../env/client";
+import { CLI_API, NOBOX_CORE_URL } from "../env/client";
 
 
 

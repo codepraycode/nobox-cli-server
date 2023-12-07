@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { AuthResponseTemplate, AuthResponseDTO} from '@/helpers';
 import { Respond } from "@/utils";
 import { callback_client_id } from "@/constants";
-import { CLI_CLIENT } from "../../../../../env/server";
+import { CLI_CLIENT } from "../../../../env/server";
 
 
 
