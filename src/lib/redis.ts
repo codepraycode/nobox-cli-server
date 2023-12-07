@@ -36,7 +36,18 @@ export function createRedisInstance(config = default_config) {
         }
 
 
-        const redis = new Redis(options);
+        let redis:Redis;
+
+        if (!global._redis) {
+            // console.log("No already initialized redis!")
+            redis = new Redis(options);
+
+            global._redis = redis;
+        } else {
+
+            // console.log("Already initialized redis!")
+            redis = global._redis;
+        }
         
         redis.on('error', (error: unknown) => {
             console.warn('[Redis] Error connecting', error);
